@@ -1,4 +1,5 @@
 from linked_list import LinkedList
+from linked_list import Node
 
 """
 A stack is a data structure whose primary purpose is to store and
@@ -13,23 +14,65 @@ return elements in Last In First Out order.
    implementing a Stack?
 """
 
+# BELOW IS PART #1
+
+# class Stack:
+#     def __init__(self):
+#         self.size = 0
+#         self._data = []
+
+#     def __len__(self):
+#         return len(self._data)
+
+#     def is_empty(self):
+#         return len(self._data) == 0
+
+#     def push(self, value):
+#         self._data.append(value)
+
+#     def pop(self):
+#         if self.is_empty():
+#             return None
+#         else:
+#             return self._data.pop(-1)
+
+###################BELOW IS PART 2########################
+
 
 class Stack:
     def __init__(self):
-        self.size = 0
-        self._data = []
+        self.head = None
 
     def __len__(self):
-        return len(self._data)
+        pointer = self.head
+        count = 0
+
+        while(pointer):
+            count += 1
+            pointer = pointer.next_node
+        return count
 
     def is_empty(self):
-        return len(self._data) == 0
+        if self.head == None:
+            return True
+        else:
+            return False
 
     def push(self, value):
-        self._data.append(value)
+        if self.head == None:
+            self.head = Node(value)
+        else:
+            new_node = Node(value)
+            new_node.next_node = self.head
+            self.head = new_node
 
     def pop(self):
         if self.is_empty():
             return None
         else:
-            return self._data.pop(-1)
+            pointer = self.head
+            self.head = pointer.next_node
+            pointer.next_node = None
+            return pointer.value
+
+############BELOW IS THE ANSWER TO #3##############################
