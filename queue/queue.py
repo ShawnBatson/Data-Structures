@@ -65,11 +65,10 @@ class Queue:
 
     def enqueue(self, value):
         if self.tail == None:
-            self.head = Node(value)
-            self.tail = self.head
+            self.tail = self.head = Node(value)
         else:
-            self.last = Node(value)
-            self.last = self.last.next_node
+            self.tail = Node(value)
+            # self.tail = self.tail.next_node
 
     def dequeue(self):
         if self.is_empty():
