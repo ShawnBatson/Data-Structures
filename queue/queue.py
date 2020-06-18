@@ -47,15 +47,16 @@ class Queue:
         self.head = None
         self.tail = None
         self._data = []
+        self.count = 0
 
     def __len__(self):
         pointer = self.head
-        count = 0
+        counter = 0
 
         while(pointer):
-            count += 1
+            counter += 1
             pointer = pointer.next_node
-        return count
+        return counter
 
     def is_empty(self):
         if self.head == None:
@@ -64,20 +65,22 @@ class Queue:
             return False
 
     def enqueue(self, value):
-        if self.tail == None:
-            self.tail = self.head = Node(value)
+        new_node = Node(value)
+
+        if self.tail is not None:
+            self.tail.next_node = new_node
         else:
-            self.tail = Node(value)
-            # self.tail = self.tail.next_node
+            self.head = new_node
+        self.tail = new_node
+        self.count += 1
 
     def dequeue(self):
         if self.is_empty():
-            return
-        else:
-            pointer = self.head
-            self.head = pointer.next_node
-            pointer.next_node = None
-            return pointer.value
+            return None
+        if self.head is not None:
+            head_value = self.head.value
+            self.head = self.head.next_node
+            return head_value
 
 
 ############### PART 3 BELOW ###################
