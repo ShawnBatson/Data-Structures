@@ -85,4 +85,4 @@ class Queue:
 
 ############### PART 3 BELOW ###################
 
-# ANSWER:  An array can be accessed via an index pointer.  A linked list, each separate element points to the next element, so when removing or adding, you have to change where the pointers are pointing.
+# ANSWER:  An array is much simpler because you can use the indeces to remove in the right spot.  A Linked list requires much more effort to remove and add in the correct order.

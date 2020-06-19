@@ -75,4 +75,6 @@ class Stack:
             pointer.next_node = None
             return pointer.value
 
-############BELOW IS THE ANSWER TO #3##############################
+############### PART 3 BELOW ###################
+
+# ANSWER:  An array can be accessed via an index pointer.  A linked list, each separate element points to the next element, so when removing or adding, you have to change where the pointers are pointing.
