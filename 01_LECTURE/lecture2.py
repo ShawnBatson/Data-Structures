@@ -1,4 +1,4 @@
-from linked
+
 # Data structures will have common actions/operations
 # insert (front or back) values
 # read values
