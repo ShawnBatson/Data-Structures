@@ -70,10 +70,10 @@ class Stack:
         if self.is_empty():
             return None
         else:
-            pointer = self.head
-            self.head = pointer.next_node
-            pointer.next_node = None
-            return pointer.value
+            head_node = self.head
+            self.head = head_node.next_node
+            head_node.next_node = None
+            return head_node.value
 
 ############### PART 3 BELOW ###################
 

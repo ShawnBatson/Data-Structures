@@ -181,3 +181,13 @@ class QueueLL:
             self.size -= 1
             value = self.storage.remove_head()
             return value
+
+
+##### DOUBLY LINKED LIST############
+    # nodes can know what's in front, and knows the previous number
+        # VALUE, NEXT, PREVIOUS
+    # REMOVING
+    # tail = tail.previous
+    # tail.next = NONE (removing the forward link)
+# SHOULD A HEAD HAVE A PREVIOUS NODE IT POINTS TO.  NO!!
+# SHOULD A TAIL EVER HAVE A NEXT VALUE. NO!
