@@ -79,9 +79,9 @@ class DoublyLinkedList:
     def move_to_end(self, node):
         if node is self.tail:
             return
-            old_value = node.head_value
-            self.delete(node)
-            self.add_to_tail(old_value)
+        old_value = node.head_value
+        self.delete(node)
+        self.add_to_tail(old_value)
 
     def delete(self, node):
         # the list is empty -> do nothing:
