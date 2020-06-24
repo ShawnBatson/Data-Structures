@@ -17,6 +17,18 @@ class LinkedList:
     def __init__(self):
         self.head = None
         self.tail = None
+# MEMORIZE THIS HERE V V V V V V V V V V V
+
+    def __str__(self):
+        output = ''  # MAKE SURE A CONTAINER IS MADE
+        current_node = self.head  # create tracker node variable
+
+        while current_node is not None:  # loop until it's none
+
+            # update the tracker node to next node
+            output += f'{current_node.value} => '
+
+            current_node = current_node.next_node  # move the head.
 
     def add_to_head(self, value):
 

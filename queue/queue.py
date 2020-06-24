@@ -1,3 +1,7 @@
+from linked_list import LinkedList
+from linked_list import Node
+
+
 """
 A queue is a data structure whose primary purpose is to store and
 return elements in First In First Out order. 
@@ -13,16 +17,72 @@ return elements in First In First Out order.
 Stretch: What if you could only use instances of your Stack class to implement the Queue?
          What would that look like? How many Stacks would you need? Try it!
 """
+##############BELOW IS PART #1 #####################################
+
+# class Queue:
+#     def __init__(self):
+#         self.size = 0
+#         self._data = []
+
+#     def __len__(self):
+#         return len(self._data)
+
+#     def is_empty(self):
+#         return len(self._data) == 0
+
+#     def enqueue(self, value):
+#         self._data.append(value)
+
+#     def dequeue(self):
+#         if self.is_empty():
+#             return None
+#         else:
+#             return self._data.pop(0)   # this is the first in first out part.
+
+##################BELOW IS PART #2#################################
+
+
 class Queue:
     def __init__(self):
-        self.size = 0
-        # self.storage = ?
-    
+        self.head = None
+        self.tail = None
+        self._data = []
+        self.count = 0
+
     def __len__(self):
-        pass
+        pointer = self.head
+        counter = 0
+
+        while(pointer):
+            counter += 1
+            pointer = pointer.next_node
+        return counter
+
+    def is_empty(self):
+        if self.head == None:
+            return True
+        else:
+            return False
 
     def enqueue(self, value):
-        pass
+        new_node = Node(value)
+
+        if self.tail is not None:
+            self.tail.next_node = new_node
+        else:
+            self.head = new_node
+        self.tail = new_node
+        self.count += 1
 
     def dequeue(self):
-        pass
+        if self.is_empty():
+            return None
+        if self.head is not None:
+            head_value = self.head.value
+            self.head = self.head.next_node
+            return head_value
+
+
+############### PART 3 BELOW ###################
+
+# ANSWER:  An array is much simpler because you can use the indeces to remove in the right spot.  A Linked list requires much more effort to remove and add in the correct order.
