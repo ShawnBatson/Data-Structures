@@ -42,14 +42,14 @@ class BSTNode:
         # compare the target to current value
         # if current value < target
         found = False
-        if self.value < target:
+        if self.value >= target:
             # check the left subtree (self.left.contains(target))
             # if you cannot go left, return False
             if self.left is None:
                 return False
             found = self.left.contains(target)
         # if current value >= target
-        if self.value >= target:
+        if self.value < target:
             # check if right subtree contains target
             # if you cannot go right, return False
             if self.right is None:
@@ -71,7 +71,7 @@ class BSTNode:
 
     # Call the function `fn` on the value of each node
     def for_each(self, fn):
-        # call it on the original number
+        # call it on the original value
         fn(self.value)
         # check to see if the current node has a left attribute that isn't None
         if self.left is not None:
