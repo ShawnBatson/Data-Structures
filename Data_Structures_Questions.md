@@ -104,19 +104,19 @@ array.splice would be an O(n), delete would perform better at O(1)
 
 1. What is the runtime complexity of `insert`?
 
-O(n)
+O(n) ( it is also considered to have an O(h) depending on the height of the tree )
 
 2. What is the runtime complexity of `contains`?
 
-O(n) best case, ( it is also considered to have an O(h) depending on the height of the tree. )
+O(log n) ( it is also considered to have an O(h) depending on the height of the tree. )
 
 3. What is the runtime complexity of `get_max`?
 
-O(n) best case, ( Also relevant to O(h) depending on height of tree )
+O(log n) ( Also relevant to O(h) depending on height of tree )
 
 4. What is the runtime complexity of `for_each`?
 
-O(n) best case, ( Also relevant to O(h) depending on height of tree )
+O(n) ( Also relevant to O(h) depending on height of tree )
 
 ## Heap
 
