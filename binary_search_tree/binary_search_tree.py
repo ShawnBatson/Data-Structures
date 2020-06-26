@@ -1,4 +1,4 @@
-from dll_queue.py import Queue
+
 """
 Binary search trees are a data structure that enforce an ordering over
 the data they store. That ordering in turn makes it a lot more efficient
@@ -10,6 +10,7 @@ This part of the project comprises two days:
 2. Implement the `in_order_print`, `bft_print`, and `dft_print` methods
    on the BSTNode class.
 """
+####### BELOW IS AN INSERT. FAR DOWN IS THE ASSIGNMENT ############
 
 
 class BSTNode:
@@ -98,29 +99,50 @@ class BSTNode:
 
     # Print the value of every node, starting with the given node,
     # in an iterative breadth first traversal
-    def bft_print(self, node):
-        # create a queue for nodes
-        # add the first node to the queue
+    def bft_print(self, node):  # create a queue for nodes
+        queue = []  # create a queue for nodes
+        queue.append(node)  # add the first node to the queue
         # throw out a while loop:
-        # While queue is not empty
-        # remove the first node from the queue
-        # print the removed node
-        # add all children to the queue (left and right)
-        # IF NODE HAS CHILDREN< ADD THEM TO THE QUEUE
-        pass
+        while len(queue) > 0:  # While queue is not empty
+            current_node = queue.pop(0)  # remove the first node from the queue
+            print(current_node.value)  # print the removed node
+            # add all children to the queue (left and right)
+            if current_node.left is not None:
+                queue.append(current_node.left)
+            if current_node.right is not None:
+                queue.append(current_node.right)
 
     # Print the value of every node, starting with the given node,
     # in an iterative depth first traversal
     def dft_print(self, node):
-        pass
+        stack = []  # create the stack
+        stack.append(node)  # append the first node
+        while len(stack) > 0:  # while the stack exists
+            # pull the last value in the stack
+            current_node = stack.pop(len(stack)-1)
+            print(current_node.value)  # print that value
+            if current_node.right:  # if there is a right attribute
+                stack.append(current_node.right)  # add this value to the stack
+            if current_node.left:  # if there is a left attribute
+                stack.append(current_node.left)  # add that to the stack.
 
     # Stretch Goals -------------------------
     # Note: Research may be required
 
     # Print Pre-order recursive DFT
     def pre_order_dft(self, node):
-        pass
+        print(self.value)  # print the first value
+        if self.left is not None:
+            # call the function on all left attributes down the line
+            self.left.pre_order_dft(self.left)  # recursive
+        if self.right is not None:
+            # then call the function on all the right attributes
+            self.right.pre_order_dft(self.right)  # recursive
 
     # Print Post-order recursive DFT
     def post_order_dft(self, node):
-        pass
+        if self.left is not None:
+            self.left.post_order_dft(self.left)  # call all left attributes
+        if self.right is not None:
+            self.right.post_order_dft(self.right)  # call all right attributes
+        print(self.value)  # THEN print the value.
